@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Manual-player instantiation example</title>
+
+    <script src="http://cdn.dashjs.org/v3.1.0/dash.all.debug.js"></script>
+    <!--dash.all.min.js should be used in production over dash.all.debug.js
+        Debug files are not compressed or obfuscated making the file size much larger compared with dash.all.min.js-->
+    <!--<script src="../../dist/dash.all.min.js"></script>-->
+
+    <script>
+        function init() {
+            var video,
+                player,
+                url = "http://localhost:8080/manifest.mpd";
+            video = document.querySelector("video");
+            player = dashjs.MediaPlayer().create();
+            player.initialize(video, url, true);
+        }
+    </script>
+
+    <style>
+        video {
+            width: 640px;
+            height: 360px;
+        }
+    </style>
+    </head>
+    <body>
+        <div>
+            <video controls="true">
+            </video>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                init();
+            });
+	    console.log('ok');
+        </script>
+    </body>
+</html>

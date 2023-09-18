@@ -6,7 +6,11 @@ app.get('/', (req, res) => {
     return res.status(200).sendFile(`${__dirname}/client.html`);
 });
 
-const server = app.listen(3000);
+app.get('/dash', (req, res) => {
+    return res.status(200).sendFile(`${__dirname}/player.html`);
+});
+
+const server = app.listen(process.env.PORT || 8010);
 
 new hls(server, {
     provider: {
