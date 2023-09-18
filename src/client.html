@@ -4,9 +4,27 @@
 <head>
     <meta charset="UTF-8" />
     <title>HLS Player</title>
+    <script src="
+https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+"></script>
 </head>
 
 <body>
+    <script>
+        // $.getJSON("https://api.ipify.org/?format=json", function (e) {
+        //     console.log(e.ip);
+        //     $("#brower_ip").text(e.ip);
+        // });
+
+        const token = "at_6TBcF9Vdf5SN7aUBsAEfZrlhykLBQ";
+        $.getJSON(`https://geo.ipify.org/api/v2/country?apiKey=${token}`, function(e) {
+            console.log(e);
+            $("#browser_ip").text("ip: " + e.ip + "; country: " + e.location.country + "; region: " + e.location.region);
+        })
+
+    </script>
+    <div>Client info: <span id="browser_ip"></span> </div>
+
     <video id="video" width="500" height="500" controls></video>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
